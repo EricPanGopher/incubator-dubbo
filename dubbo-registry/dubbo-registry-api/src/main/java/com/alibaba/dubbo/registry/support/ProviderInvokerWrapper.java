@@ -22,6 +22,8 @@ import com.alibaba.dubbo.rpc.Invoker;
 import com.alibaba.dubbo.rpc.Result;
 import com.alibaba.dubbo.rpc.RpcException;
 
+import java.util.Objects;
+
 /**
  * @date 2017/11/23
  */
@@ -39,22 +41,27 @@ public class ProviderInvokerWrapper<T> implements Invoker {
         this.providerUrl = providerUrl;
     }
 
+    @Override
     public Class<T> getInterface() {
         return invoker.getInterface();
     }
 
+    @Override
     public URL getUrl() {
         return invoker.getUrl();
     }
 
+    @Override
     public boolean isAvailable() {
         return invoker.isAvailable();
     }
 
+    @Override
     public Result invoke(Invocation invocation) throws RpcException {
         return invoker.invoke(invocation);
     }
 
+    @Override
     public void destroy() {
         invoker.destroy();
     }
@@ -81,5 +88,22 @@ public class ProviderInvokerWrapper<T> implements Invoker {
 
     public void setReg(boolean reg) {
         isReg = reg;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        ProviderInvokerWrapper<?> that = (ProviderInvokerWrapper<?>) o;
+        return isReg == that.isReg &&
+                Objects.equals(invoker, that.invoker) &&
+                Objects.equals(originUrl, that.originUrl) &&
+                Objects.equals(registryUrl, that.registryUrl) &&
+                Objects.equals(providerUrl, that.providerUrl);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(invoker, originUrl, registryUrl, providerUrl, isReg);
     }
 }
