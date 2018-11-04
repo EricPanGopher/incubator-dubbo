@@ -599,6 +599,7 @@ public class RegistryDirectory<T> extends AbstractDirectory<T> implements Notify
         return invokers == null ? new ArrayList<Invoker<T>>(0) : invokers;
     }
 
+    @Override
     public Class<T> getInterface() {
         return serviceType;
     }

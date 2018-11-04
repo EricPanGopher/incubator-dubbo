@@ -51,6 +51,7 @@ public class StaticDirectory<T> extends AbstractDirectory<T> {
         this.invokers = invokers;
     }
 
+    @Override
     public Class<T> getInterface() {
         return invokers.get(0).getInterface();
     }

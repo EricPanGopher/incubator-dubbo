@@ -83,6 +83,7 @@ public class ScriptRouter implements Router {
         return url;
     }
 
+    @Override
     @SuppressWarnings("unchecked")
     public <T> List<Invoker<T>> route(List<Invoker<T>> invokers, URL url, Invocation invocation) throws RpcException {
         try {
