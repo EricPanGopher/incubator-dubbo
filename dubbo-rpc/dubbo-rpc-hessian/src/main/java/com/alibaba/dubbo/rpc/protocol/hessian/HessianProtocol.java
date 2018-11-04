@@ -59,6 +59,7 @@ public class HessianProtocol extends AbstractProxyProtocol {
         this.httpBinder = httpBinder;
     }
 
+    @Override
     public int getDefaultPort() {
         return 80;
     }
@@ -99,6 +100,7 @@ public class HessianProtocol extends AbstractProxyProtocol {
         return (T) hessianProxyFactory.create(serviceType, url.setProtocol("http").toJavaURL(), Thread.currentThread().getContextClassLoader());
     }
 
+    @Override
     protected int getErrorCode(Throwable e) {
         if (e instanceof HessianConnectionException) {
             if (e.getCause() != null) {

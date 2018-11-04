@@ -72,6 +72,7 @@ public class WebServiceProtocol extends AbstractProxyProtocol {
         this.httpBinder = httpBinder;
     }
 
+    @Override
     public int getDefaultPort() {
         return DEFAULT_PORT;
     }
@@ -113,6 +114,7 @@ public class WebServiceProtocol extends AbstractProxyProtocol {
         return ref;
     }
 
+    @Override
     protected int getErrorCode(Throwable e) {
         if (e instanceof Fault) {
             e = e.getCause();

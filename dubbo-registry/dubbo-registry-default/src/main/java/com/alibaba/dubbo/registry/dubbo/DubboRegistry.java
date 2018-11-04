@@ -142,6 +142,7 @@ public class DubboRegistry extends FailbackRegistry {
         registryService.unsubscribe(url, listener);
     }
 
+    @Override
     public List<URL> lookup(URL url) {
         return registryService.lookup(url);
     }

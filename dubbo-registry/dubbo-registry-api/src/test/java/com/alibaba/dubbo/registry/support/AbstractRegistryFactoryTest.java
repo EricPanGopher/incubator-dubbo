@@ -50,18 +50,23 @@ public class AbstractRegistryFactoryTest {
                 public void destroy() {
                 }
 
+                @Override
                 public void register(URL url) {
                 }
 
+                @Override
                 public void unregister(URL url) {
                 }
 
+                @Override
                 public void subscribe(URL url, NotifyListener listener) {
                 }
 
+                @Override
                 public void unsubscribe(URL url, NotifyListener listener) {
                 }
 
+                @Override
                 public List<URL> lookup(URL url) {
                     return null;
                 }

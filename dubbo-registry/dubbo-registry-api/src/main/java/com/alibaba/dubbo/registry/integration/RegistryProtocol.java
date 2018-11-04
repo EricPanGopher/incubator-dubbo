@@ -111,6 +111,7 @@ public class RegistryProtocol implements Protocol {
         this.proxyFactory = proxyFactory;
     }
 
+    @Override
     public int getDefaultPort() {
         return 9090;
     }
@@ -124,6 +125,7 @@ public class RegistryProtocol implements Protocol {
         registry.register(registedProviderUrl);
     }
 
+    @Override
     public <T> Exporter<T> export(final Invoker<T> originInvoker) throws RpcException {
         //export invoker
         final ExporterChangeableWrapper<T> exporter = doLocalExport(originInvoker);
@@ -263,6 +265,7 @@ public class RegistryProtocol implements Protocol {
         return key;
     }
 
+    @Override
     @SuppressWarnings("unchecked")
     public <T> Invoker<T> refer(Class<T> type, URL url) throws RpcException {
         url = url.setProtocol(url.getParameter(Constants.REGISTRY_KEY, Constants.DEFAULT_REGISTRY)).removeParameter(Constants.REGISTRY_KEY);

@@ -196,6 +196,7 @@ public class ZookeeperRegistry extends FailbackRegistry {
         }
     }
 
+    @Override
     public List<URL> lookup(URL url) {
         if (url == null) {
             throw new IllegalArgumentException("lookup url == null");

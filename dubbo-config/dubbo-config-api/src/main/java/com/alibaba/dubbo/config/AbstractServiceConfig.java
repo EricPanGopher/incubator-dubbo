@@ -21,6 +21,7 @@ import com.alibaba.dubbo.config.support.Parameter;
 import com.alibaba.dubbo.rpc.ExporterListener;
 
 import java.util.Arrays;
+import java.util.Collections;
 import java.util.List;
 
 /**
@@ -171,7 +172,7 @@ public abstract class AbstractServiceConfig extends AbstractInterfaceConfig {
     }
 
     public void setProtocol(ProtocolConfig protocol) {
-        this.protocols = Arrays.asList(new ProtocolConfig[]{protocol});
+        this.protocols = Collections.singletonList(protocol);
     }
 
     public String getAccesslog() {

@@ -49,6 +49,8 @@ import java.util.concurrent.Executors;
 import java.util.concurrent.atomic.AtomicLong;
 import java.util.concurrent.atomic.AtomicReference;
 
+import static java.util.concurrent.Executors.newFixedThreadPool;
+
 /**
  * AbstractRegistry. (SPI, Prototype, ThreadSafe)
  *
@@ -64,7 +66,7 @@ public abstract class AbstractRegistry implements Registry {
     // Local disk cache, where the special key value.registies records the list of registry centers, and the others are the list of notified service providers
     private final Properties properties = new Properties();
     // File cache timing writing
-    private final ExecutorService registryCacheExecutor = Executors.newFixedThreadPool(1, new NamedThreadFactory("DubboSaveRegistryCache", true));
+    private final ExecutorService registryCacheExecutor = newFixedThreadPool(1, new NamedThreadFactory("DubboSaveRegistryCache", true));
     // Is it synchronized to save the file
     private final boolean syncSaveFile;
     private final AtomicLong lastCacheChanged = new AtomicLong();
@@ -103,6 +105,7 @@ public abstract class AbstractRegistry implements Registry {
         return urls;
     }
 
+    @Override
     public URL getUrl() {
         return registryUrl;
     }
@@ -230,6 +233,7 @@ public abstract class AbstractRegistry implements Registry {
         return null;
     }
 
+    @Override
     public List<URL> lookup(URL url) {
         List<URL> result = new ArrayList<URL>();
         Map<String, List<URL>> notifiedUrls = getNotified().get(url);
@@ -261,6 +265,7 @@ public abstract class AbstractRegistry implements Registry {
         return result;
     }
 
+    @Override
     public void register(URL url) {
         if (url == null) {
             throw new IllegalArgumentException("register url == null");
@@ -271,6 +276,7 @@ public abstract class AbstractRegistry implements Registry {
         registered.add(url);
     }
 
+    @Override
     public void unregister(URL url) {
         if (url == null) {
             throw new IllegalArgumentException("unregister url == null");
@@ -281,6 +287,7 @@ public abstract class AbstractRegistry implements Registry {
         registered.remove(url);
     }
 
+    @Override
     public void subscribe(URL url, NotifyListener listener) {
         if (url == null) {
             throw new IllegalArgumentException("subscribe url == null");
@@ -299,6 +306,7 @@ public abstract class AbstractRegistry implements Registry {
         listeners.add(listener);
     }
 
+    @Override
     public void unsubscribe(URL url, NotifyListener listener) {
         if (url == null) {
             throw new IllegalArgumentException("unsubscribe url == null");
@@ -475,6 +483,7 @@ public abstract class AbstractRegistry implements Registry {
         }
     }
 
+    @Override
     public String toString() {
         return getUrl().toString();
     }
@@ -486,6 +495,7 @@ public abstract class AbstractRegistry implements Registry {
             this.version = version;
         }
 
+        @Override
         public void run() {
             doSaveProperties(version);
         }

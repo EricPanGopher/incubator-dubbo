@@ -269,6 +269,7 @@ public class ServiceBean<T> extends ServiceConfig<T> implements InitializingBean
     }
 
     // merged from dubbox
+    @Override
     protected Class getServiceClass(T ref) {
         if (AopUtils.isAopProxy(ref)) {
             return AopUtils.getTargetClass(ref);

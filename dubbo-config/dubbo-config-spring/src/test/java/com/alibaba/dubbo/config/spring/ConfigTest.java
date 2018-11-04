@@ -915,6 +915,7 @@ public class ConfigTest {
         sc.setInterface(DemoService.class.getName());
         sc.setRef(new GenericService() {
 
+            @Override
             public Object $invoke(String method, String[] parameterTypes, Object[] args) throws GenericException {
                 return null;
             }
@@ -946,6 +947,7 @@ public class ConfigTest {
         service.setGeneric(Constants.GENERIC_SERIALIZATION_BEAN);
         service.setRef(new GenericService() {
 
+            @Override
             public Object $invoke(String method, String[] parameterTypes, Object[] args) throws GenericException {
                 return null;
             }

@@ -217,10 +217,12 @@ public class DubboProtocol extends AbstractProtocol {
         return Collections.unmodifiableCollection(invokers);
     }
 
+    @Override
     public int getDefaultPort() {
         return DEFAULT_PORT;
     }
 
+    @Override
     public <T> Exporter<T> export(Invoker<T> invoker) throws RpcException {
         URL url = invoker.getUrl();
 
@@ -326,6 +328,7 @@ public class DubboProtocol extends AbstractProtocol {
         }
     }
 
+    @Override
     public <T> Invoker<T> refer(Class<T> serviceType, URL url) throws RpcException {
         optimizeSerialization(url);
         // create rpc invoker.

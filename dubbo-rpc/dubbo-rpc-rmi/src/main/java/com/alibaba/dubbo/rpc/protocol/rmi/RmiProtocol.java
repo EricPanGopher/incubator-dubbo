@@ -44,10 +44,12 @@ public class RmiProtocol extends AbstractProxyProtocol {
         super(RemoteAccessException.class, RemoteException.class);
     }
 
+    @Override
     public int getDefaultPort() {
         return DEFAULT_PORT;
     }
 
+    @Override
     protected <T> Runnable doExport(final T impl, Class<T> type, URL url) throws RpcException {
         final RmiServiceExporter rmiServiceExporter = new RmiServiceExporter();
         rmiServiceExporter.setRegistryPort(url.getPort());
@@ -91,6 +93,7 @@ public class RmiProtocol extends AbstractProxyProtocol {
         return (T) rmiProxyFactoryBean.getObject();
     }
 
+    @Override
     protected int getErrorCode(Throwable e) {
         if (e instanceof RemoteAccessException) {
             e = e.getCause();

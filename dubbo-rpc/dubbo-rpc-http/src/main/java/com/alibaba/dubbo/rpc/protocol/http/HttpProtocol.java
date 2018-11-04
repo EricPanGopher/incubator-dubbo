@@ -61,6 +61,7 @@ public class HttpProtocol extends AbstractProxyProtocol {
         this.httpBinder = httpBinder;
     }
 
+    @Override
     public int getDefaultPort() {
         return DEFAULT_PORT;
     }
@@ -116,6 +117,7 @@ public class HttpProtocol extends AbstractProxyProtocol {
         return (T) httpProxyFactoryBean.getObject();
     }
 
+    @Override
     protected int getErrorCode(Throwable e) {
         if (e instanceof RemoteAccessException) {
             e = e.getCause();

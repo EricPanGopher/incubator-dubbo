@@ -61,6 +61,7 @@ import static com.alibaba.dubbo.common.utils.NetUtils.getAvailablePort;
 import static com.alibaba.dubbo.common.utils.NetUtils.getLocalHost;
 import static com.alibaba.dubbo.common.utils.NetUtils.isInvalidLocalHost;
 import static com.alibaba.dubbo.common.utils.NetUtils.isInvalidPort;
+import static java.util.concurrent.Executors.*;
 
 /**
  * ServiceConfig
@@ -77,7 +78,7 @@ public class ServiceConfig<T> extends AbstractServiceConfig {
 
     private static final Map<String, Integer> RANDOM_PORT_MAP = new HashMap<String, Integer>();
 
-    private static final ScheduledExecutorService delayExportExecutor = Executors.newSingleThreadScheduledExecutor(new NamedThreadFactory("DubboServiceDelayExporter", true));
+    private static final ScheduledExecutorService delayExportExecutor = newSingleThreadScheduledExecutor(new NamedThreadFactory("DubboServiceDelayExporter", true));
     private final List<URL> urls = new ArrayList<URL>();
     private final List<Exporter<?>> exporters = new ArrayList<Exporter<?>>();
     // interface type
@@ -192,6 +193,9 @@ public class ServiceConfig<T> extends AbstractServiceConfig {
         return unexported;
     }
 
+
+
+//   暴露服务
     public synchronized void export() {
         if (provider != null) {
             if (export == null) {
@@ -207,6 +211,7 @@ public class ServiceConfig<T> extends AbstractServiceConfig {
 
         if (delay != null && delay > 0) {
             delayExportExecutor.schedule(new Runnable() {
+                @Override
                 public void run() {
                     doExport();
                 }
@@ -216,6 +221,7 @@ public class ServiceConfig<T> extends AbstractServiceConfig {
         }
     }
 
+//    暴露服务方法
     protected synchronized void doExport() {
         if (unexported) {
             throw new IllegalStateException("Already unexported!");
@@ -313,7 +319,7 @@ public class ServiceConfig<T> extends AbstractServiceConfig {
         if (path == null || path.length() == 0) {
             path = interfaceName;
         }
-        doExportUrls();
+        doExportUrls(); // 暴露url
         ProviderModel providerModel = new ProviderModel(getUniqueServiceName(), this, ref);
         ApplicationModel.initProviderModel(getUniqueServiceName(), providerModel);
     }

@@ -75,6 +75,7 @@ public class RestProtocol extends AbstractProxyProtocol {
         serverFactory.setHttpBinder(httpBinder);
     }
 
+    @Override
     public int getDefaultPort() {
         return DEFAULT_PORT;
     }
@@ -187,6 +188,7 @@ public class RestProtocol extends AbstractProxyProtocol {
         return target.proxy(serviceType);
     }
 
+    @Override
     protected int getErrorCode(Throwable e) {
         // TODO
         return super.getErrorCode(e);

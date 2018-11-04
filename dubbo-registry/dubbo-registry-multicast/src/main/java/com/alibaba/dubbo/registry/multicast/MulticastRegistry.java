@@ -367,26 +367,31 @@ public class MulticastRegistry extends FailbackRegistry {
         return list;
     }
 
+    @Override
     public void register(URL url) {
         super.register(url);
         registered(url);
     }
 
+    @Override
     public void unregister(URL url) {
         super.unregister(url);
         unregistered(url);
     }
 
+    @Override
     public void subscribe(URL url, NotifyListener listener) {
         super.subscribe(url, listener);
         subscribed(url, listener);
     }
 
+    @Override
     public void unsubscribe(URL url, NotifyListener listener) {
         super.unsubscribe(url, listener);
         received.remove(url);
     }
 
+    @Override
     public List<URL> lookup(URL url) {
         List<URL> urls = new ArrayList<URL>();
         Map<String, List<URL>> notifiedUrls = getNotified().get(url);

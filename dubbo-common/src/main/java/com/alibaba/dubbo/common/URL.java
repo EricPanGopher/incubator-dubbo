@@ -977,7 +977,9 @@ public final class URL implements Serializable {
             }
         }
         // return immediately if there's no change
-        if (hasAndEqual) return this;
+        if (hasAndEqual) {
+            return this;
+        }
 
         Map<String, String> map = new HashMap<String, String>(getParameters());
         map.putAll(parameters);

@@ -52,10 +52,12 @@ public class RedisProtocol extends AbstractProtocol {
 
     public static final int DEFAULT_PORT = 6379;
 
+    @Override
     public int getDefaultPort() {
         return DEFAULT_PORT;
     }
 
+    @Override
     public <T> Exporter<T> export(final Invoker<T> invoker) throws RpcException {
         throw new UnsupportedOperationException("Unsupported export redis service. url: " + invoker.getUrl());
     }
@@ -64,6 +66,7 @@ public class RedisProtocol extends AbstractProtocol {
         return ExtensionLoader.getExtensionLoader(Serialization.class).getExtension(url.getParameter(Constants.SERIALIZATION_KEY, "java"));
     }
 
+    @Override
     public <T> Invoker<T> refer(final Class<T> type, final URL url) throws RpcException {
         try {
             GenericObjectPoolConfig config = new GenericObjectPoolConfig();

@@ -79,8 +79,9 @@ public final class ClassGenerator {
     }
 
     public static ClassPool getClassPool(ClassLoader loader) {
-        if (loader == null)
+        if (loader == null) {
             return ClassPool.getDefault();
+        }
 
         ClassPool pool = POOL_MAP.get(loader);
         if (pool == null) {
