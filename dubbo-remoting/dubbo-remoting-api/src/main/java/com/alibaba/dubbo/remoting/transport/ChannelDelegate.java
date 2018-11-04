@@ -52,14 +52,17 @@ public class ChannelDelegate implements Channel {
         return channel.getUrl();
     }
 
+    @Override
     public InetSocketAddress getRemoteAddress() {
         return channel.getRemoteAddress();
     }
 
+    @Override
     public ChannelHandler getChannelHandler() {
         return channel.getChannelHandler();
     }
 
+    @Override
     public boolean isConnected() {
         return channel.isConnected();
     }
@@ -68,6 +71,7 @@ public class ChannelDelegate implements Channel {
         return channel.getLocalAddress();
     }
 
+    @Override
     public boolean hasAttribute(String key) {
         return channel.hasAttribute(key);
     }
@@ -76,10 +80,12 @@ public class ChannelDelegate implements Channel {
         channel.send(message);
     }
 
+    @Override
     public Object getAttribute(String key) {
         return channel.getAttribute(key);
     }
 
+    @Override
     public void setAttribute(String key, Object value) {
         channel.setAttribute(key, value);
     }
@@ -88,6 +94,7 @@ public class ChannelDelegate implements Channel {
         channel.send(message, sent);
     }
 
+    @Override
     public void removeAttribute(String key) {
         channel.removeAttribute(key);
     }
@@ -105,6 +112,7 @@ public class ChannelDelegate implements Channel {
         channel.startClose();
     }
 
+    @Override
     public boolean isClosed() {
         return channel.isClosed();
     }

@@ -57,6 +57,7 @@ final class DeprecatedExchangeCodec extends DeprecatedTelnetCodec implements Cod
         return MAGIC;
     }
 
+    @Override
     public void encode(Channel channel, OutputStream os, Object msg) throws IOException {
         if (msg instanceof Request) {
             encodeRequest(channel, os, (Request) msg);

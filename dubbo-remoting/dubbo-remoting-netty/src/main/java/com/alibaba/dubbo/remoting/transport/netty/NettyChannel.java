@@ -79,10 +79,12 @@ final class NettyChannel extends AbstractChannel {
         return (InetSocketAddress) channel.getLocalAddress();
     }
 
+    @Override
     public InetSocketAddress getRemoteAddress() {
         return (InetSocketAddress) channel.getRemoteAddress();
     }
 
+    @Override
     public boolean isConnected() {
         return channel.isConnected();
     }
@@ -138,14 +140,17 @@ final class NettyChannel extends AbstractChannel {
         }
     }
 
+    @Override
     public boolean hasAttribute(String key) {
         return attributes.containsKey(key);
     }
 
+    @Override
     public Object getAttribute(String key) {
         return attributes.get(key);
     }
 
+    @Override
     public void setAttribute(String key, Object value) {
         if (value == null) { // The null value unallowed in the ConcurrentHashMap.
             attributes.remove(key);
@@ -154,6 +159,7 @@ final class NettyChannel extends AbstractChannel {
         }
     }
 
+    @Override
     public void removeAttribute(String key) {
         attributes.remove(key);
     }

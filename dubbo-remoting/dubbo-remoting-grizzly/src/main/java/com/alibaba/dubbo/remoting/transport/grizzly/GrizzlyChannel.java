@@ -81,10 +81,12 @@ final class GrizzlyChannel extends AbstractChannel {
         }
     }
 
+    @Override
     public InetSocketAddress getRemoteAddress() {
         return (InetSocketAddress) connection.getPeerAddress();
     }
 
+    @Override
     public boolean isConnected() {
         return connection.isOpen();
     }
@@ -133,18 +135,22 @@ final class GrizzlyChannel extends AbstractChannel {
         }
     }
 
+    @Override
     public boolean hasAttribute(String key) {
         return getAttribute(key) == null;
     }
 
+    @Override
     public Object getAttribute(String key) {
         return Grizzly.DEFAULT_ATTRIBUTE_BUILDER.createAttribute(key).get(connection);
     }
 
+    @Override
     public void setAttribute(String key, Object value) {
         Grizzly.DEFAULT_ATTRIBUTE_BUILDER.createAttribute(key).set(connection, value);
     }
 
+    @Override
     public void removeAttribute(String key) {
         Grizzly.DEFAULT_ATTRIBUTE_BUILDER.createAttribute(key).remove(connection);
     }

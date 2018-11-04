@@ -169,6 +169,7 @@ public class DeprecatedTelnetCodec implements Codec {
         }
     }
 
+    @Override
     public void encode(Channel channel, OutputStream output, Object message) throws IOException {
         if (message instanceof String) {
             if (isClientSide(channel)) {

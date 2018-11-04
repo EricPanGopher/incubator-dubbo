@@ -67,18 +67,22 @@ public class WrappedChannelHandler implements ChannelHandlerDelegate {
         }
     }
 
+    @Override
     public void connected(Channel channel) throws RemotingException {
         handler.connected(channel);
     }
 
+    @Override
     public void disconnected(Channel channel) throws RemotingException {
         handler.disconnected(channel);
     }
 
+    @Override
     public void sent(Channel channel, Object message) throws RemotingException {
         handler.sent(channel, message);
     }
 
+    @Override
     public void received(Channel channel, Object message) throws RemotingException {
         handler.received(channel, message);
     }

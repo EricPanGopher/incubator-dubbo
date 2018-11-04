@@ -87,6 +87,7 @@ final class LazyConnectExchangeClient implements ExchangeClient {
         return url;
     }
 
+    @Override
     public InetSocketAddress getRemoteAddress() {
         if (client == null) {
             return InetSocketAddress.createUnresolved(url.getHost(), url.getPort());
@@ -115,11 +116,13 @@ final class LazyConnectExchangeClient implements ExchangeClient {
         }
     }
 
+    @Override
     public ChannelHandler getChannelHandler() {
         checkClient();
         return client.getChannelHandler();
     }
 
+    @Override
     public boolean isConnected() {
         if (client == null) {
             return initialState;
@@ -150,6 +153,7 @@ final class LazyConnectExchangeClient implements ExchangeClient {
         client.send(message, sent);
     }
 
+    @Override
     public boolean isClosed() {
         if (client != null)
             return client.isClosed();
@@ -184,11 +188,13 @@ final class LazyConnectExchangeClient implements ExchangeClient {
         reset(getUrl().addParameters(parameters.getParameters()));
     }
 
+    @Override
     public void reconnect() throws RemotingException {
         checkClient();
         client.reconnect();
     }
 
+    @Override
     public Object getAttribute(String key) {
         if (client == null) {
             return null;
@@ -197,16 +203,19 @@ final class LazyConnectExchangeClient implements ExchangeClient {
         }
     }
 
+    @Override
     public void setAttribute(String key, Object value) {
         checkClient();
         client.setAttribute(key, value);
     }
 
+    @Override
     public void removeAttribute(String key) {
         checkClient();
         client.removeAttribute(key);
     }
 
+    @Override
     public boolean hasAttribute(String key) {
         if (client == null) {
             return false;

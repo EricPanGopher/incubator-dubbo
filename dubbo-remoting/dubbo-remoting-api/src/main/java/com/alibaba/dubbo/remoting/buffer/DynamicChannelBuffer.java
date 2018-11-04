@@ -66,11 +66,13 @@ public class DynamicChannelBuffer extends AbstractChannelBuffer {
     }
 
 
+    @Override
     public int capacity() {
         return buffer.capacity();
     }
 
 
+    @Override
     public ChannelBuffer copy(int index, int length) {
         DynamicChannelBuffer copiedBuffer = new DynamicChannelBuffer(Math.max(length, 64), factory());
         copiedBuffer.buffer = buffer.copy(index, length);
@@ -79,11 +81,13 @@ public class DynamicChannelBuffer extends AbstractChannelBuffer {
     }
 
 
+    @Override
     public ChannelBufferFactory factory() {
         return factory;
     }
 
 
+    @Override
     public byte getByte(int index) {
         return buffer.getByte(index);
     }
@@ -109,11 +113,13 @@ public class DynamicChannelBuffer extends AbstractChannelBuffer {
     }
 
 
+    @Override
     public boolean isDirect() {
         return buffer.isDirect();
     }
 
 
+    @Override
     public void setByte(int index, int value) {
         buffer.setByte(index, value);
     }
@@ -139,6 +145,7 @@ public class DynamicChannelBuffer extends AbstractChannelBuffer {
     }
 
 
+    @Override
     public ByteBuffer toByteBuffer(int index, int length) {
         return buffer.toByteBuffer(index, length);
     }
@@ -174,16 +181,19 @@ public class DynamicChannelBuffer extends AbstractChannelBuffer {
     }
 
 
+    @Override
     public byte[] array() {
         return buffer.array();
     }
 
 
+    @Override
     public boolean hasArray() {
         return buffer.hasArray();
     }
 
 
+    @Override
     public int arrayOffset() {
         return buffer.arrayOffset();
     }

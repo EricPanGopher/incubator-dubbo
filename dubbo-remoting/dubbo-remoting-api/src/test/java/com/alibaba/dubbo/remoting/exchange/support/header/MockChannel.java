@@ -37,26 +37,32 @@ public class MockChannel implements Channel {
     private volatile boolean closing = false;
     private List<Object> sentObjects = new ArrayList<Object>();
 
+    @Override
     public InetSocketAddress getRemoteAddress() {
         return null;
     }
 
+    @Override
     public boolean isConnected() {
         return false;
     }
 
+    @Override
     public boolean hasAttribute(String key) {
         return attributes.containsKey(key);
     }
 
+    @Override
     public Object getAttribute(String key) {
         return attributes.get(key);
     }
 
+    @Override
     public void setAttribute(String key, Object value) {
         attributes.put(key, value);
     }
 
+    @Override
     public void removeAttribute(String key) {
         attributes.remove(key);
     }
@@ -65,6 +71,7 @@ public class MockChannel implements Channel {
         return null;
     }
 
+    @Override
     public ChannelHandler getChannelHandler() {
         return null;
     }
@@ -94,6 +101,7 @@ public class MockChannel implements Channel {
         closing = true;
     }
 
+    @Override
     public boolean isClosed() {
         return closed;
     }

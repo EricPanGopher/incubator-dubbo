@@ -39,21 +39,25 @@ public class NettyBackedChannelBuffer implements ChannelBuffer {
         return buffer;
     }
 
+    @Override
     public int capacity() {
         return buffer.capacity();
     }
 
 
+    @Override
     public ChannelBuffer copy(int index, int length) {
         return new NettyBackedChannelBuffer(buffer.copy(index, length));
     }
 
 
+    @Override
     public ChannelBufferFactory factory() {
         return NettyBackedChannelBufferFactory.getInstance();
     }
 
 
+    @Override
     public byte getByte(int index) {
         return buffer.getByte(index);
     }
@@ -82,11 +86,13 @@ public class NettyBackedChannelBuffer implements ChannelBuffer {
     }
 
 
+    @Override
     public boolean isDirect() {
         return buffer.isDirect();
     }
 
 
+    @Override
     public void setByte(int index, int value) {
         buffer.setByte(index, value);
     }
@@ -115,21 +121,25 @@ public class NettyBackedChannelBuffer implements ChannelBuffer {
     }
 
 
+    @Override
     public ByteBuffer toByteBuffer(int index, int length) {
         return buffer.toByteBuffer(index, length);
     }
 
 
+    @Override
     public byte[] array() {
         return buffer.array();
     }
 
 
+    @Override
     public boolean hasArray() {
         return buffer.hasArray();
     }
 
 
+    @Override
     public int arrayOffset() {
         return buffer.arrayOffset();
     }
@@ -143,16 +153,19 @@ public class NettyBackedChannelBuffer implements ChannelBuffer {
     }
 
 
+    @Override
     public ChannelBuffer copy() {
         return new NettyBackedChannelBuffer(buffer.copy());
     }
 
 
+    @Override
     public void discardReadBytes() {
         buffer.discardReadBytes();
     }
 
 
+    @Override
     public void ensureWritableBytes(int writableBytes) {
         buffer.ensureWritableBytes(writableBytes);
     }
@@ -179,26 +192,31 @@ public class NettyBackedChannelBuffer implements ChannelBuffer {
     }
 
 
+    @Override
     public void markReaderIndex() {
         buffer.markReaderIndex();
     }
 
 
+    @Override
     public void markWriterIndex() {
         buffer.markWriterIndex();
     }
 
 
+    @Override
     public boolean readable() {
         return buffer.readable();
     }
 
 
+    @Override
     public int readableBytes() {
         return buffer.readableBytes();
     }
 
 
+    @Override
     public byte readByte() {
         return buffer.readByte();
     }
@@ -251,21 +269,25 @@ public class NettyBackedChannelBuffer implements ChannelBuffer {
     }
 
 
+    @Override
     public void resetReaderIndex() {
         buffer.resetReaderIndex();
     }
 
 
+    @Override
     public void resetWriterIndex() {
         buffer.resetWriterIndex();
     }
 
 
+    @Override
     public int readerIndex() {
         return buffer.readerIndex();
     }
 
 
+    @Override
     public void readerIndex(int readerIndex) {
         buffer.readerIndex(readerIndex);
     }
@@ -297,31 +319,37 @@ public class NettyBackedChannelBuffer implements ChannelBuffer {
     }
 
 
+    @Override
     public void setIndex(int readerIndex, int writerIndex) {
         buffer.setIndex(readerIndex, writerIndex);
     }
 
 
+    @Override
     public void skipBytes(int length) {
         buffer.skipBytes(length);
     }
 
 
+    @Override
     public ByteBuffer toByteBuffer() {
         return buffer.toByteBuffer();
     }
 
 
+    @Override
     public boolean writable() {
         return buffer.writable();
     }
 
 
+    @Override
     public int writableBytes() {
         return buffer.writableBytes();
     }
 
 
+    @Override
     public void writeByte(int value) {
         buffer.writeByte(value);
     }
@@ -371,11 +399,13 @@ public class NettyBackedChannelBuffer implements ChannelBuffer {
     }
 
 
+    @Override
     public int writerIndex() {
         return buffer.writerIndex();
     }
 
 
+    @Override
     public void writerIndex(int writerIndex) {
         buffer.writerIndex(writerIndex);
     }

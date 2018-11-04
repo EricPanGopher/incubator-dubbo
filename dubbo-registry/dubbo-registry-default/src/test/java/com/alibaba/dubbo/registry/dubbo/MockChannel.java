@@ -42,10 +42,12 @@ public class MockChannel implements ExchangeChannel {
         return localAddress;
     }
 
+    @Override
     public InetSocketAddress getRemoteAddress() {
         return remoteAddress;
     }
 
+    @Override
     public boolean isConnected() {
         return true;
     }
@@ -73,6 +75,7 @@ public class MockChannel implements ExchangeChannel {
         return null;
     }
 
+    @Override
     public ChannelHandler getChannelHandler() {
         return null;
     }
@@ -89,22 +92,27 @@ public class MockChannel implements ExchangeChannel {
         return null;
     }
 
+    @Override
     public Object getAttribute(String key) {
         return null;
     }
 
+    @Override
     public void setAttribute(String key, Object value) {
 
     }
 
+    @Override
     public boolean hasAttribute(String key) {
         return false;
     }
 
+    @Override
     public boolean isClosed() {
         return false;
     }
 
+    @Override
     public void removeAttribute(String key) {
 
     }

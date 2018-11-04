@@ -48,6 +48,7 @@ public class ExchangeServerDelegate implements ExchangeServer {
         this.server = server;
     }
 
+    @Override
     public boolean isBound() {
         return server.isBound();
     }
@@ -61,10 +62,12 @@ public class ExchangeServerDelegate implements ExchangeServer {
         reset(getUrl().addParameters(parameters.getParameters()));
     }
 
+    @Override
     public Collection<Channel> getChannels() {
         return server.getChannels();
     }
 
+    @Override
     public Channel getChannel(InetSocketAddress remoteAddress) {
         return server.getChannel(remoteAddress);
     }
@@ -73,6 +76,7 @@ public class ExchangeServerDelegate implements ExchangeServer {
         return server.getUrl();
     }
 
+    @Override
     public ChannelHandler getChannelHandler() {
         return server.getChannelHandler();
     }
@@ -93,6 +97,7 @@ public class ExchangeServerDelegate implements ExchangeServer {
         server.close();
     }
 
+    @Override
     public boolean isClosed() {
         return server.isClosed();
     }

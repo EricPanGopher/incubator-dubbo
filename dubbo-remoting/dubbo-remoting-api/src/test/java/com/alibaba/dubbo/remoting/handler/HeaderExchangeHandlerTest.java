@@ -44,6 +44,7 @@ public class HeaderExchangeHandlerTest {
         request.setData(requestdata);
 
         ExchangeHandler exhandler = new MockedExchangeHandler() {
+            @Override
             public void received(Channel channel, Object message) throws RemotingException {
                 Assert.assertEquals(requestdata, message);
             }
@@ -78,6 +79,7 @@ public class HeaderExchangeHandlerTest {
                 return request;
             }
 
+            @Override
             public void received(Channel channel, Object message) throws RemotingException {
                 Assert.fail();
             }
@@ -195,6 +197,7 @@ public class HeaderExchangeHandlerTest {
 
     private class MockedExchangeHandler extends MockedChannelHandler implements ExchangeHandler {
 
+        @Override
         public String telnet(Channel channel, String message) throws RemotingException {
             throw new UnsupportedOperationException();
         }

@@ -117,6 +117,7 @@ public class MockedClient implements ExchangeClient {
         //this.listener = null;
     }
 
+    @Override
     public boolean isConnected() {
         return connected;
     }
@@ -140,6 +141,7 @@ public class MockedClient implements ExchangeClient {
         return invoked;
     }
 
+    @Override
     public InetSocketAddress getRemoteAddress() {
         return address;
     }
@@ -208,6 +210,7 @@ public class MockedClient implements ExchangeClient {
         return null;
     }
 
+    @Override
     public ChannelHandler getChannelHandler() {
         return null;
     }
@@ -223,25 +226,31 @@ public class MockedClient implements ExchangeClient {
         return null;
     }
 
+    @Override
     public void reconnect() throws RemotingException {
     }
 
+    @Override
     public Object getAttribute(String key) {
         return null;
     }
 
+    @Override
     public void setAttribute(String key, Object value) {
 
     }
 
+    @Override
     public boolean hasAttribute(String key) {
         return false;
     }
 
+    @Override
     public boolean isClosed() {
         return closed;
     }
 
+    @Override
     public void removeAttribute(String key) {
 
     }

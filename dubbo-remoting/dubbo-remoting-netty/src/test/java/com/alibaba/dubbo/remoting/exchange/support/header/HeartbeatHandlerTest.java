@@ -111,18 +111,22 @@ public class HeartbeatHandlerTest {
             return request;
         }
 
+        @Override
         public void connected(Channel channel) throws RemotingException {
             ++connectCount;
         }
 
+        @Override
         public void disconnected(Channel channel) throws RemotingException {
             ++disconnectCount;
         }
 
+        @Override
         public void sent(Channel channel, Object message) throws RemotingException {
 
         }
 
+        @Override
         public void received(Channel channel, Object message) throws RemotingException {
             logger.error(this.getClass().getSimpleName() + message.toString());
         }
@@ -131,6 +135,7 @@ public class HeartbeatHandlerTest {
             exception.printStackTrace();
         }
 
+        @Override
         public String telnet(Channel channel, String message) throws RemotingException {
             return message;
         }

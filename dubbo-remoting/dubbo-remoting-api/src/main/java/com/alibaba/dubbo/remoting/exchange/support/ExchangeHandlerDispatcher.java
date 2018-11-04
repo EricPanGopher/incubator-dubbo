@@ -85,18 +85,22 @@ public class ExchangeHandlerDispatcher implements ExchangeHandler {
         return ((Replier) replierDispatcher).reply(channel, request);
     }
 
+    @Override
     public void connected(Channel channel) {
         handlerDispatcher.connected(channel);
     }
 
+    @Override
     public void disconnected(Channel channel) {
         handlerDispatcher.disconnected(channel);
     }
 
+    @Override
     public void sent(Channel channel, Object message) {
         handlerDispatcher.sent(channel, message);
     }
 
+    @Override
     public void received(Channel channel, Object message) {
         handlerDispatcher.received(channel, message);
     }
@@ -105,6 +109,7 @@ public class ExchangeHandlerDispatcher implements ExchangeHandler {
         handlerDispatcher.caught(channel, exception);
     }
 
+    @Override
     public String telnet(Channel channel, String message) throws RemotingException {
         return telnetHandler.telnet(channel, message);
     }

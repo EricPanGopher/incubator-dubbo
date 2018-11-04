@@ -31,30 +31,36 @@ public class MockedChannel implements Channel {
         this.url = url;
     }
 
+    @Override
     public InetSocketAddress getRemoteAddress() {
 
         return null;
     }
 
+    @Override
     public boolean isConnected() {
 
         return false;
     }
 
+    @Override
     public boolean hasAttribute(String key) {
 
         return false;
     }
 
+    @Override
     public Object getAttribute(String key) {
 
         return null;
     }
 
+    @Override
     public void setAttribute(String key, Object value) {
 
     }
 
+    @Override
     public void removeAttribute(String key) {
 
     }
@@ -63,6 +69,7 @@ public class MockedChannel implements Channel {
         return url;
     }
 
+    @Override
     public ChannelHandler getChannelHandler() {
 
         return null;
@@ -94,6 +101,7 @@ public class MockedChannel implements Channel {
 
     }
 
+    @Override
     public boolean isClosed() {
 
         return false;

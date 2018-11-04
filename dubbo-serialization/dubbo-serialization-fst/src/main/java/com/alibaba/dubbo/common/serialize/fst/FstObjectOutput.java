@@ -32,30 +32,37 @@ public class FstObjectOutput implements ObjectOutput {
         output = FstFactory.getDefaultFactory().getObjectOutput(outputStream);
     }
 
+    @Override
     public void writeBool(boolean v) throws IOException {
         output.writeBoolean(v);
     }
 
+    @Override
     public void writeByte(byte v) throws IOException {
         output.writeByte(v);
     }
 
+    @Override
     public void writeShort(short v) throws IOException {
         output.writeShort(v);
     }
 
+    @Override
     public void writeInt(int v) throws IOException {
         output.writeInt(v);
     }
 
+    @Override
     public void writeLong(long v) throws IOException {
         output.writeLong(v);
     }
 
+    @Override
     public void writeFloat(float v) throws IOException {
         output.writeFloat(v);
     }
 
+    @Override
     public void writeDouble(double v) throws IOException {
         output.writeDouble(v);
     }
@@ -78,6 +85,7 @@ public class FstObjectOutput implements ObjectOutput {
     }
 
 
+    @Override
     public void writeUTF(String v) throws IOException {
         output.writeUTF(v);
     }
@@ -86,6 +94,7 @@ public class FstObjectOutput implements ObjectOutput {
         output.writeObject(v);
     }
 
+    @Override
     public void flushBuffer() throws IOException {
         output.flush();
     }

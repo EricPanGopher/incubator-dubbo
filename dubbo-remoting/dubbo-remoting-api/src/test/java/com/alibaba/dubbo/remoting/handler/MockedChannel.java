@@ -41,6 +41,7 @@ public class MockedChannel implements Channel {
         return url;
     }
 
+    @Override
     public ChannelHandler getChannelHandler() {
 
         return this.handler;
@@ -71,30 +72,37 @@ public class MockedChannel implements Channel {
         closing = true;
     }
 
+    @Override
     public boolean isClosed() {
         return isClosed;
     }
 
+    @Override
     public InetSocketAddress getRemoteAddress() {
         return null;
     }
 
+    @Override
     public boolean isConnected() {
         return false;
     }
 
+    @Override
     public boolean hasAttribute(String key) {
         return map.containsKey(key);
     }
 
+    @Override
     public Object getAttribute(String key) {
         return map.get(key);
     }
 
+    @Override
     public void setAttribute(String key, Object value) {
         map.put(key, value);
     }
 
+    @Override
     public void removeAttribute(String key) {
         map.remove(key);
     }

@@ -44,6 +44,7 @@ public class ByteBufferBackedChannelBuffer extends AbstractChannelBuffer {
         setIndex(buffer.readerIndex(), buffer.writerIndex());
     }
 
+    @Override
     public ChannelBufferFactory factory() {
         if (buffer.isDirect()) {
             return DirectChannelBufferFactory.getInstance();
@@ -53,11 +54,13 @@ public class ByteBufferBackedChannelBuffer extends AbstractChannelBuffer {
     }
 
 
+    @Override
     public int capacity() {
         return capacity;
     }
 
 
+    @Override
     public ChannelBuffer copy(int index, int length) {
         ByteBuffer src;
         try {
@@ -75,6 +78,7 @@ public class ByteBufferBackedChannelBuffer extends AbstractChannelBuffer {
     }
 
 
+    @Override
     public byte getByte(int index) {
         return buffer.get(index);
     }
@@ -136,11 +140,13 @@ public class ByteBufferBackedChannelBuffer extends AbstractChannelBuffer {
     }
 
 
+    @Override
     public boolean isDirect() {
         return buffer.isDirect();
     }
 
 
+    @Override
     public void setByte(int index, int value) {
         buffer.put(index, (byte) value);
     }
@@ -175,6 +181,7 @@ public class ByteBufferBackedChannelBuffer extends AbstractChannelBuffer {
     }
 
 
+    @Override
     public ByteBuffer toByteBuffer(int index, int length) {
         if (index == 0 && length == capacity()) {
             return buffer.duplicate();
@@ -225,16 +232,19 @@ public class ByteBufferBackedChannelBuffer extends AbstractChannelBuffer {
     }
 
 
+    @Override
     public byte[] array() {
         return buffer.array();
     }
 
 
+    @Override
     public boolean hasArray() {
         return buffer.hasArray();
     }
 
 
+    @Override
     public int arrayOffset() {
         return buffer.arrayOffset();
     }

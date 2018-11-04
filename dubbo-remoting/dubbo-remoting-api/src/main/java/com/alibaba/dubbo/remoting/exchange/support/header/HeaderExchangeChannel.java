@@ -116,6 +116,7 @@ final class HeaderExchangeChannel implements ExchangeChannel {
         return future;
     }
 
+    @Override
     public boolean isClosed() {
         return closed;
     }
@@ -157,6 +158,7 @@ final class HeaderExchangeChannel implements ExchangeChannel {
         return channel.getLocalAddress();
     }
 
+    @Override
     public InetSocketAddress getRemoteAddress() {
         return channel.getRemoteAddress();
     }
@@ -165,10 +167,12 @@ final class HeaderExchangeChannel implements ExchangeChannel {
         return channel.getUrl();
     }
 
+    @Override
     public boolean isConnected() {
         return channel.isConnected();
     }
 
+    @Override
     public ChannelHandler getChannelHandler() {
         return channel.getChannelHandler();
     }
@@ -177,18 +181,22 @@ final class HeaderExchangeChannel implements ExchangeChannel {
         return (ExchangeHandler) channel.getChannelHandler();
     }
 
+    @Override
     public Object getAttribute(String key) {
         return channel.getAttribute(key);
     }
 
+    @Override
     public void setAttribute(String key, Object value) {
         channel.setAttribute(key, value);
     }
 
+    @Override
     public void removeAttribute(String key) {
         channel.removeAttribute(key);
     }
 
+    @Override
     public boolean hasAttribute(String key) {
         return channel.hasAttribute(key);
     }

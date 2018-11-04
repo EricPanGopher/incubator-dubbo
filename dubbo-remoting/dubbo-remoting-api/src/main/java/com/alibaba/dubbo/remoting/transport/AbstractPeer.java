@@ -78,6 +78,7 @@ public abstract class AbstractPeer implements Endpoint, ChannelHandler {
         this.url = url;
     }
 
+    @Override
     public ChannelHandler getChannelHandler() {
         if (handler instanceof ChannelHandlerDelegate) {
             return ((ChannelHandlerDelegate) handler).getHandler();
@@ -103,6 +104,7 @@ public abstract class AbstractPeer implements Endpoint, ChannelHandler {
         return handler;
     }
 
+    @Override
     public boolean isClosed() {
         return closed;
     }
@@ -111,6 +113,7 @@ public abstract class AbstractPeer implements Endpoint, ChannelHandler {
         return closing && !closed;
     }
 
+    @Override
     public void connected(Channel ch) throws RemotingException {
         if (closed) {
             return;
@@ -118,10 +121,12 @@ public abstract class AbstractPeer implements Endpoint, ChannelHandler {
         handler.connected(ch);
     }
 
+    @Override
     public void disconnected(Channel ch) throws RemotingException {
         handler.disconnected(ch);
     }
 
+    @Override
     public void sent(Channel ch, Object msg) throws RemotingException {
         if (closed) {
             return;
@@ -129,6 +134,7 @@ public abstract class AbstractPeer implements Endpoint, ChannelHandler {
         handler.sent(ch, msg);
     }
 
+    @Override
     public void received(Channel ch, Object msg) throws RemotingException {
         if (closed) {
             return;

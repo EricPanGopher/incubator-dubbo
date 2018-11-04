@@ -78,6 +78,7 @@ public class HeaderExchangeClient implements ExchangeClient {
         return channel.getUrl();
     }
 
+    @Override
     public InetSocketAddress getRemoteAddress() {
         return channel.getRemoteAddress();
     }
@@ -86,10 +87,12 @@ public class HeaderExchangeClient implements ExchangeClient {
         return channel.request(request, timeout);
     }
 
+    @Override
     public ChannelHandler getChannelHandler() {
         return channel.getChannelHandler();
     }
 
+    @Override
     public boolean isConnected() {
         return channel.isConnected();
     }
@@ -110,6 +113,7 @@ public class HeaderExchangeClient implements ExchangeClient {
         channel.send(message, sent);
     }
 
+    @Override
     public boolean isClosed() {
         return channel.isClosed();
     }
@@ -140,22 +144,27 @@ public class HeaderExchangeClient implements ExchangeClient {
         reset(getUrl().addParameters(parameters.getParameters()));
     }
 
+    @Override
     public void reconnect() throws RemotingException {
         client.reconnect();
     }
 
+    @Override
     public Object getAttribute(String key) {
         return channel.getAttribute(key);
     }
 
+    @Override
     public void setAttribute(String key, Object value) {
         channel.setAttribute(key, value);
     }
 
+    @Override
     public void removeAttribute(String key) {
         channel.removeAttribute(key);
     }
 
+    @Override
     public boolean hasAttribute(String key) {
         return channel.hasAttribute(key);
     }

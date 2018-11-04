@@ -74,6 +74,7 @@ public class PerformanceServerTest extends TestCase {
                 + transporter + "&serialization="
                 + serialization + "&threadpool=" + threadpool
                 + "&threads=" + threads + "&iothreads=" + iothreads + "&buffer=" + buffer + "&channel.handler=" + channelHandler, new ExchangeHandlerAdapter() {
+            @Override
             public String telnet(Channel channel, String message) throws RemotingException {
                 return "echo: " + message + "\r\ntelnet> ";
             }
@@ -98,6 +99,7 @@ public class PerformanceServerTest extends TestCase {
     private static ExchangeServer statTelnetServer(int port) throws Exception {
         // Start server
         ExchangeServer telnetserver = Exchangers.bind("exchange://0.0.0.0:" + port, new ExchangeHandlerAdapter() {
+            @Override
             public String telnet(Channel channel, String message) throws RemotingException {
                 if (message.equals("help")) {
                     return "support cmd: \r\n\tstart \r\n\tstop \r\n\tshutdown \r\n\trestart times [alive] [sleep] \r\ntelnet>";

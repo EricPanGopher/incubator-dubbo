@@ -36,6 +36,7 @@ public class CodecAdapter implements Codec2 {
         this.codec = codec;
     }
 
+    @Override
     public void encode(Channel channel, ChannelBuffer buffer, Object message)
             throws IOException {
         UnsafeByteArrayOutputStream os = new UnsafeByteArrayOutputStream(1024);

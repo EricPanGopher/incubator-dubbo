@@ -248,6 +248,7 @@ public abstract class AbstractRegistry implements Registry {
         } else {
             final AtomicReference<List<URL>> reference = new AtomicReference<List<URL>>();
             NotifyListener listener = new NotifyListener() {
+                @Override
                 public void notify(List<URL> urls) {
                     reference.set(urls);
                 }

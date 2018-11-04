@@ -43,6 +43,7 @@ public class FastJsonObjectInput implements ObjectInput {
         this.reader = new BufferedReader(reader);
     }
 
+    @Override
     public boolean readBool() throws IOException {
         try {
             return readObject(boolean.class);
@@ -51,6 +52,7 @@ public class FastJsonObjectInput implements ObjectInput {
         }
     }
 
+    @Override
     public byte readByte() throws IOException {
         try {
             return readObject(byte.class);
@@ -59,6 +61,7 @@ public class FastJsonObjectInput implements ObjectInput {
         }
     }
 
+    @Override
     public short readShort() throws IOException {
         try {
             return readObject(short.class);
@@ -67,6 +70,7 @@ public class FastJsonObjectInput implements ObjectInput {
         }
     }
 
+    @Override
     public int readInt() throws IOException {
         try {
             return readObject(int.class);
@@ -75,6 +79,7 @@ public class FastJsonObjectInput implements ObjectInput {
         }
     }
 
+    @Override
     public long readLong() throws IOException {
         try {
             return readObject(long.class);
@@ -83,6 +88,7 @@ public class FastJsonObjectInput implements ObjectInput {
         }
     }
 
+    @Override
     public float readFloat() throws IOException {
         try {
             return readObject(float.class);
@@ -91,6 +97,7 @@ public class FastJsonObjectInput implements ObjectInput {
         }
     }
 
+    @Override
     public double readDouble() throws IOException {
         try {
             return readObject(double.class);
@@ -99,6 +106,7 @@ public class FastJsonObjectInput implements ObjectInput {
         }
     }
 
+    @Override
     public String readUTF() throws IOException {
         try {
             return readObject(String.class);

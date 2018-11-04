@@ -34,19 +34,23 @@ public class UnsafeByteArrayOutputStream extends OutputStream {
     }
 
     public UnsafeByteArrayOutputStream(int size) {
-        if (size < 0)
+        if (size < 0) {
             throw new IllegalArgumentException("Negative initial size: " + size);
+        }
         mBuffer = new byte[size];
     }
 
+    @Override
     public void write(int b) {
         int newcount = mCount + 1;
-        if (newcount > mBuffer.length)
+        if (newcount > mBuffer.length) {
             mBuffer = Bytes.copyOf(mBuffer, Math.max(mBuffer.length << 1, newcount));
+        }
         mBuffer[mCount] = (byte) b;
         mCount = newcount;
     }
 
+    @Override
     public void write(byte b[], int off, int len) {
         if ((off < 0) || (off > b.length) || (len < 0) || ((off + len) > b.length) || ((off + len) < 0))
             throw new IndexOutOfBoundsException();
@@ -79,6 +83,7 @@ public class UnsafeByteArrayOutputStream extends OutputStream {
         out.write(mBuffer, 0, mCount);
     }
 
+    @Override
     public String toString() {
         return new String(mBuffer, 0, mCount);
     }
@@ -87,6 +92,7 @@ public class UnsafeByteArrayOutputStream extends OutputStream {
         return new String(mBuffer, 0, mCount, charset);
     }
 
+    @Override
     public void close() throws IOException {
     }
 }

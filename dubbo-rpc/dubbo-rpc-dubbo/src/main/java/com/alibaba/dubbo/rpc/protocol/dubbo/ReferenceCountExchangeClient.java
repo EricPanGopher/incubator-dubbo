@@ -65,10 +65,12 @@ final class ReferenceCountExchangeClient implements ExchangeClient {
         return client.getUrl();
     }
 
+    @Override
     public InetSocketAddress getRemoteAddress() {
         return client.getRemoteAddress();
     }
 
+    @Override
     public ChannelHandler getChannelHandler() {
         return client.getChannelHandler();
     }
@@ -77,10 +79,12 @@ final class ReferenceCountExchangeClient implements ExchangeClient {
         return client.request(request, timeout);
     }
 
+    @Override
     public boolean isConnected() {
         return client.isConnected();
     }
 
+    @Override
     public void reconnect() throws RemotingException {
         client.reconnect();
     }
@@ -89,6 +93,7 @@ final class ReferenceCountExchangeClient implements ExchangeClient {
         return client.getLocalAddress();
     }
 
+    @Override
     public boolean hasAttribute(String key) {
         return client.hasAttribute(key);
     }
@@ -105,6 +110,7 @@ final class ReferenceCountExchangeClient implements ExchangeClient {
         return client.getExchangeHandler();
     }
 
+    @Override
     public Object getAttribute(String key) {
         return client.getAttribute(key);
     }
@@ -113,10 +119,12 @@ final class ReferenceCountExchangeClient implements ExchangeClient {
         client.send(message, sent);
     }
 
+    @Override
     public void setAttribute(String key, Object value) {
         client.setAttribute(key, value);
     }
 
+    @Override
     public void removeAttribute(String key) {
         client.removeAttribute(key);
     }
@@ -163,6 +171,7 @@ final class ReferenceCountExchangeClient implements ExchangeClient {
         return gclient;
     }
 
+    @Override
     public boolean isClosed() {
         return client.isClosed();
     }

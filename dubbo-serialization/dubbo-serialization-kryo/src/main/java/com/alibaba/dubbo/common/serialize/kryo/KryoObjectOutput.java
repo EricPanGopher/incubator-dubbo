@@ -36,30 +36,37 @@ public class KryoObjectOutput implements ObjectOutput, Cleanable {
         this.kryo = KryoUtils.get();
     }
 
+    @Override
     public void writeBool(boolean v) throws IOException {
         output.writeBoolean(v);
     }
 
+    @Override
     public void writeByte(byte v) throws IOException {
         output.writeByte(v);
     }
 
+    @Override
     public void writeShort(short v) throws IOException {
         output.writeShort(v);
     }
 
+    @Override
     public void writeInt(int v) throws IOException {
         output.writeInt(v);
     }
 
+    @Override
     public void writeLong(long v) throws IOException {
         output.writeLong(v);
     }
 
+    @Override
     public void writeFloat(float v) throws IOException {
         output.writeFloat(v);
     }
 
+    @Override
     public void writeDouble(double v) throws IOException {
         output.writeDouble(v);
     }
@@ -82,6 +89,7 @@ public class KryoObjectOutput implements ObjectOutput, Cleanable {
     }
 
 
+    @Override
     public void writeUTF(String v) throws IOException {
         output.writeString(v);
     }
@@ -91,10 +99,12 @@ public class KryoObjectOutput implements ObjectOutput, Cleanable {
         kryo.writeClassAndObject(output, v);
     }
 
+    @Override
     public void flushBuffer() throws IOException {
         output.flush();
     }
 
+    @Override
     public void cleanup() {
         KryoUtils.release(kryo);
         kryo = null;

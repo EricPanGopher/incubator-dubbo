@@ -77,6 +77,7 @@ public class HeaderExchangeServer implements ExchangeServer {
         return server;
     }
 
+    @Override
     public boolean isClosed() {
         return server.isClosed();
     }
@@ -167,15 +168,18 @@ public class HeaderExchangeServer implements ExchangeServer {
         return HeaderExchangeChannel.getOrAddChannel(channel);
     }
 
+    @Override
     @SuppressWarnings({"unchecked", "rawtypes"})
     public Collection<Channel> getChannels() {
         return (Collection) getExchangeChannels();
     }
 
+    @Override
     public Channel getChannel(InetSocketAddress remoteAddress) {
         return getExchangeChannel(remoteAddress);
     }
 
+    @Override
     public boolean isBound() {
         return server.isBound();
     }
@@ -188,6 +192,7 @@ public class HeaderExchangeServer implements ExchangeServer {
         return server.getUrl();
     }
 
+    @Override
     public ChannelHandler getChannelHandler() {
         return server.getChannelHandler();
     }

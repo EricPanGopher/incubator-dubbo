@@ -40,6 +40,7 @@ import java.util.List;
 @Help(parameter = "[service] [method] [times]", summary = "Count the service.", detail = "Count the service.")
 public class CountTelnetHandler implements TelnetHandler {
 
+    @Override
     public String telnet(final Channel channel, String message) {
         String service = (String) channel.getAttribute(ChangeTelnetHandler.SERVICE_KEY);
         if ((service == null || service.length() == 0)

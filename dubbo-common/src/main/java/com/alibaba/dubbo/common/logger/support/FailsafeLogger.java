@@ -145,6 +145,7 @@ public class FailsafeLogger implements Logger {
         }
     }
 
+    @Override
     public boolean isTraceEnabled() {
         try {
             return logger.isTraceEnabled();
@@ -153,6 +154,7 @@ public class FailsafeLogger implements Logger {
         }
     }
 
+    @Override
     public boolean isDebugEnabled() {
         try {
             return logger.isDebugEnabled();
@@ -161,6 +163,7 @@ public class FailsafeLogger implements Logger {
         }
     }
 
+    @Override
     public boolean isInfoEnabled() {
         try {
             return logger.isInfoEnabled();
@@ -169,6 +172,7 @@ public class FailsafeLogger implements Logger {
         }
     }
 
+    @Override
     public boolean isWarnEnabled() {
         try {
             return logger.isWarnEnabled();
@@ -177,6 +181,7 @@ public class FailsafeLogger implements Logger {
         }
     }
 
+    @Override
     public boolean isErrorEnabled() {
         try {
             return logger.isErrorEnabled();

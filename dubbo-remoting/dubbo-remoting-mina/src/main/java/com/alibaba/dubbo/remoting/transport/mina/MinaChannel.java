@@ -76,10 +76,12 @@ final class MinaChannel extends AbstractChannel {
         return (InetSocketAddress) session.getLocalAddress();
     }
 
+    @Override
     public InetSocketAddress getRemoteAddress() {
         return (InetSocketAddress) session.getRemoteAddress();
     }
 
+    @Override
     public boolean isConnected() {
         return session.isConnected();
     }
@@ -126,18 +128,22 @@ final class MinaChannel extends AbstractChannel {
         }
     }
 
+    @Override
     public boolean hasAttribute(String key) {
         return session.containsAttribute(key);
     }
 
+    @Override
     public Object getAttribute(String key) {
         return session.getAttribute(key);
     }
 
+    @Override
     public void setAttribute(String key, Object value) {
         session.setAttribute(key, value);
     }
 
+    @Override
     public void removeAttribute(String key) {
         session.removeAttribute(key);
     }

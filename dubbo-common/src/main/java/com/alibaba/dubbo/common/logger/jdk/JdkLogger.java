@@ -88,22 +88,27 @@ public class JdkLogger implements Logger {
         logger.log(Level.WARNING, e.getMessage(), e);
     }
 
+    @Override
     public boolean isTraceEnabled() {
         return logger.isLoggable(Level.FINER);
     }
 
+    @Override
     public boolean isDebugEnabled() {
         return logger.isLoggable(Level.FINE);
     }
 
+    @Override
     public boolean isInfoEnabled() {
         return logger.isLoggable(Level.INFO);
     }
 
+    @Override
     public boolean isWarnEnabled() {
         return logger.isLoggable(Level.WARNING);
     }
 
+    @Override
     public boolean isErrorEnabled() {
         return logger.isLoggable(Level.SEVERE);
     }

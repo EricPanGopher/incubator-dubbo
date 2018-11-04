@@ -102,6 +102,7 @@ class ChannelWrappedInvoker<T> extends AbstractInvoker<T> {
             return url;
         }
 
+        @Override
         public ChannelHandler getChannelHandler() {
             return channel.getChannelHandler();
         }
@@ -114,6 +115,7 @@ class ChannelWrappedInvoker<T> extends AbstractInvoker<T> {
             channel.close();
         }
 
+        @Override
         public boolean isClosed() {
             return channel == null || channel.isClosed();
         }
@@ -122,30 +124,37 @@ class ChannelWrappedInvoker<T> extends AbstractInvoker<T> {
             throw new RpcException("ChannelInvoker can not reset.");
         }
 
+        @Override
         public InetSocketAddress getRemoteAddress() {
             return channel.getLocalAddress();
         }
 
+        @Override
         public boolean isConnected() {
             return channel != null && channel.isConnected();
         }
 
+        @Override
         public boolean hasAttribute(String key) {
             return channel.hasAttribute(key);
         }
 
+        @Override
         public Object getAttribute(String key) {
             return channel.getAttribute(key);
         }
 
+        @Override
         public void setAttribute(String key, Object value) {
             channel.setAttribute(key, value);
         }
 
+        @Override
         public void removeAttribute(String key) {
             channel.removeAttribute(key);
         }
 
+        @Override
         public void reconnect() throws RemotingException {
 
         }

@@ -51,6 +51,7 @@ public class JavaObjectInput extends NativeJavaObjectInput {
         return b;
     }
 
+    @Override
     public String readUTF() throws IOException {
         int len = getObjectInputStream().readInt();
         if (len < 0)

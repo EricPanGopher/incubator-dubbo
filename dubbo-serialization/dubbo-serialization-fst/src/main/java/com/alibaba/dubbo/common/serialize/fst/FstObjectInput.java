@@ -33,30 +33,37 @@ public class FstObjectInput implements ObjectInput {
         input = FstFactory.getDefaultFactory().getObjectInput(inputStream);
     }
 
+    @Override
     public boolean readBool() throws IOException {
         return input.readBoolean();
     }
 
+    @Override
     public byte readByte() throws IOException {
         return input.readByte();
     }
 
+    @Override
     public short readShort() throws IOException {
         return input.readShort();
     }
 
+    @Override
     public int readInt() throws IOException {
         return input.readInt();
     }
 
+    @Override
     public long readLong() throws IOException {
         return input.readLong();
     }
 
+    @Override
     public float readFloat() throws IOException {
         return input.readFloat();
     }
 
+    @Override
     public double readDouble() throws IOException {
         return input.readDouble();
     }
@@ -74,6 +81,7 @@ public class FstObjectInput implements ObjectInput {
         }
     }
 
+    @Override
     public String readUTF() throws IOException {
         return input.readUTF();
     }

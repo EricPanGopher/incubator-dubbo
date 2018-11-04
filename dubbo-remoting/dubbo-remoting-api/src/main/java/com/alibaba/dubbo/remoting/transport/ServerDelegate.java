@@ -49,6 +49,7 @@ public class ServerDelegate implements Server {
         this.server = server;
     }
 
+    @Override
     public boolean isBound() {
         return server.isBound();
     }
@@ -62,10 +63,12 @@ public class ServerDelegate implements Server {
         reset(getUrl().addParameters(parameters.getParameters()));
     }
 
+    @Override
     public Collection<Channel> getChannels() {
         return server.getChannels();
     }
 
+    @Override
     public Channel getChannel(InetSocketAddress remoteAddress) {
         return server.getChannel(remoteAddress);
     }
@@ -74,6 +77,7 @@ public class ServerDelegate implements Server {
         return server.getUrl();
     }
 
+    @Override
     public ChannelHandler getChannelHandler() {
         return server.getChannelHandler();
     }
@@ -103,6 +107,7 @@ public class ServerDelegate implements Server {
         server.startClose();
     }
 
+    @Override
     public boolean isClosed() {
         return server.isClosed();
     }

@@ -65,26 +65,32 @@ public class HeapChannelBuffer extends AbstractChannelBuffer {
         setIndex(readerIndex, writerIndex);
     }
 
+    @Override
     public boolean isDirect() {
         return false;
     }
 
+    @Override
     public int capacity() {
         return array.length;
     }
 
+    @Override
     public boolean hasArray() {
         return true;
     }
 
+    @Override
     public byte[] array() {
         return array;
     }
 
+    @Override
     public int arrayOffset() {
         return 0;
     }
 
+    @Override
     public byte getByte(int index) {
         return array[index];
     }
@@ -115,6 +121,7 @@ public class HeapChannelBuffer extends AbstractChannelBuffer {
         return out.write(ByteBuffer.wrap(array, index, length));
     }
 
+    @Override
     public void setByte(int index, int value) {
         array[index] = (byte) value;
     }
@@ -180,6 +187,7 @@ public class HeapChannelBuffer extends AbstractChannelBuffer {
         return readBytes;
     }
 
+    @Override
     public ChannelBuffer copy(int index, int length) {
         if (index < 0 || length < 0 || index + length > array.length) {
             throw new IndexOutOfBoundsException();
@@ -190,10 +198,12 @@ public class HeapChannelBuffer extends AbstractChannelBuffer {
         return new HeapChannelBuffer(copiedArray);
     }
 
+    @Override
     public ChannelBufferFactory factory() {
         return HeapChannelBufferFactory.getInstance();
     }
 
+    @Override
     public ByteBuffer toByteBuffer(int index, int length) {
         return ByteBuffer.wrap(array, index, length);
     }

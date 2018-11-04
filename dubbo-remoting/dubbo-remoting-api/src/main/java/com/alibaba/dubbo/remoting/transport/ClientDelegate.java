@@ -61,18 +61,22 @@ public class ClientDelegate implements Client {
         return client.getUrl();
     }
 
+    @Override
     public InetSocketAddress getRemoteAddress() {
         return client.getRemoteAddress();
     }
 
+    @Override
     public void reconnect() throws RemotingException {
         client.reconnect();
     }
 
+    @Override
     public ChannelHandler getChannelHandler() {
         return client.getChannelHandler();
     }
 
+    @Override
     public boolean isConnected() {
         return client.isConnected();
     }
@@ -81,6 +85,7 @@ public class ClientDelegate implements Client {
         return client.getLocalAddress();
     }
 
+    @Override
     public boolean hasAttribute(String key) {
         return client.hasAttribute(key);
     }
@@ -89,10 +94,12 @@ public class ClientDelegate implements Client {
         client.send(message);
     }
 
+    @Override
     public Object getAttribute(String key) {
         return client.getAttribute(key);
     }
 
+    @Override
     public void setAttribute(String key, Object value) {
         client.setAttribute(key, value);
     }
@@ -101,6 +108,7 @@ public class ClientDelegate implements Client {
         client.send(message, sent);
     }
 
+    @Override
     public void removeAttribute(String key) {
         client.removeAttribute(key);
     }
@@ -118,6 +126,7 @@ public class ClientDelegate implements Client {
         client.startClose();
     }
 
+    @Override
     public boolean isClosed() {
         return client.isClosed();
     }

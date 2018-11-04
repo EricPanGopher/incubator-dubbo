@@ -56,34 +56,42 @@ public class NativeJavaObjectInput implements ObjectInput {
         return (T) readObject();
     }
 
+    @Override
     public boolean readBool() throws IOException {
         return inputStream.readBoolean();
     }
 
+    @Override
     public byte readByte() throws IOException {
         return inputStream.readByte();
     }
 
+    @Override
     public short readShort() throws IOException {
         return inputStream.readShort();
     }
 
+    @Override
     public int readInt() throws IOException {
         return inputStream.readInt();
     }
 
+    @Override
     public long readLong() throws IOException {
         return inputStream.readLong();
     }
 
+    @Override
     public float readFloat() throws IOException {
         return inputStream.readFloat();
     }
 
+    @Override
     public double readDouble() throws IOException {
         return inputStream.readDouble();
     }
 
+    @Override
     public String readUTF() throws IOException {
         return inputStream.readUTF();
     }

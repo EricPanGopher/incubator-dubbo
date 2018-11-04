@@ -49,6 +49,7 @@ public class ThriftNativeCodec implements Codec2 {
         throw new IOException("Unsupported protocol type " + protocol);
     }
 
+    @Override
     public void encode(Channel channel, ChannelBuffer buffer, Object message)
             throws IOException {
         if (message instanceof Request) {

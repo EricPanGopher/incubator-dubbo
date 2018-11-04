@@ -63,6 +63,7 @@ public class DecodeableRpcResult extends RpcResult implements Codec, Decodeable 
         this.serializationType = id;
     }
 
+    @Override
     public void encode(Channel channel, OutputStream output, Object message) throws IOException {
         throw new UnsupportedOperationException();
     }
